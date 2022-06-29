@@ -20,4 +20,5 @@ following combinations
 This Boolean Retrieval model takes a query as an input from the user. It analyses the query and fetches us the inverted index array of the recognised word. The recognised words are spelling corrected and then stemmed before fetching us the inverted index. For wildcard search query, we get all the words from the permuterm index, and then we get the
 inverted index arrays for all the terms and perform OR operation. After getting inverted index arrays of all the words, it performs the boolean operations on the arrays given in the query.
 
-
+## Credits
+This project has been developed as part of the course "Information Retrieval" taught by Dr. Bhanu Murthy at BITS Pilani Hyderabad Campus.
