@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>BooleanRetrivalSystem API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>BooleanRetrivalSystem</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# coding: utf-8
+
+# D:\All Acads\3-2\Information Retrival\Assignment Files\Document_Corpse
+
+# In[49]:
+
+
+import os
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+from nltk.metrics.distance import edit_distance
+from nltk.corpus import words
+import time
+
+
+# In[50]:
+
+
+def rotate(str, n):
+    &#34;&#34;&#34;
+    Left rotates the given string by n times
+    :param str: the string that needs to be rotated
+    :param n: the number of times the string needs to be left rotated
+    :returns: the rotated string
+    &#34;&#34;&#34;
+    return str[n:] + str[:n]
+
+
+# In[51]:
+
+
+def AND(list1, list2):
+    &#34;&#34;&#34;
+    performs intersection of two given lists.
+    
+    :param list1: list of docIDs
+    :param list2: list of docIDs
+    :returns: intersection of the two given lists
+    &#34;&#34;&#34;
+    final_list=[]
+    for docID in list1:
+        if docID in list2:
+            final_list.append(docID)
+    return final_list
+
+
+# In[52]:
+
+
+def OR(list1, list2):
+    &#34;&#34;&#34;
+    performs union of two given lists.
+    
+    :param list1: list of docIDs
+    :param list2: list of docIDs
+    :returns: union of the two given lists
+    &#34;&#34;&#34;
+    final_list = list(set(list1) | set(list2))
+    return final_list
+
+
+# In[53]:
+
+
+def NOT(list1):
+    &#34;&#34;&#34;
+    returns the items that are not there in this list
+    
+    :param list1: list of docIDs
+    :returns: list of items that are not present in this list
+    &#34;&#34;&#34;
+    total_list = list(range(42))
+    return [i for i in total_list if i not in list1]
+
+
+# In[54]:
+
+
+def removeStopWords(listOfWords):
+    &#34;&#34;&#34;
+    Removes the stop words that have been scrapped from NLTK library.
+    
+    :param listOfWords: The total list of words present in the document
+    :returns: The list in which the stopwords have been removed
+    &#34;&#34;&#34;
+    stop_words = set(stopwords.words(&#39;english&#39;))
+    return [word.lower() for word in listOfWords if not word.lower() in stop_words]
+
+
+# In[55]:
+
+
+def stemming(listOfWords):
+    &#34;&#34;&#34;
+    Performs stemming on each of the given list of words
+    
+    :param listOfWords: a list of words on which the stemming needs to be performed
+    :returns: a list of stemmed words
+    &#34;&#34;&#34;
+    ps = PorterStemmer()
+    return [ps.stem(w) for w in listOfWords]
+
+
+# In[56]:
+
+
+def correction(word, all_words):
+    &#34;&#34;&#34;
+    Corrects the given word if it has a spelling mistake. The list of correct words is  scrapped from NLTK library
+    
+    :param word: the word that might need correction
+    :returns: corrected word if the given word is spelled wrong
+    &#34;&#34;&#34;
+    correct_words = all_words
+
+    all_edit_distances = [(edit_distance(word, w),w) for w in correct_words if w[0]==word[0]]
+    return sorted(all_edit_distances, key = lambda val:val[0])[0][1]
+
+
+# In[57]:
+
+
+def wildCardSearch(word, permutermIndex, invertedIndex):
+    &#34;&#34;&#34;
+    wildcard query terms can have many possibilites based on the document corpse.
+    This function takes the wildcard terms and searches for all the possiblites of the word and returns a combined list of 
+    documents that the possible words are present
+    
+    :param word: the wildcard query term
+    :param permutermIndex: the permuterm index which has all the words with their possible left rotations
+    :param invertedIndex: the inverted index for searching the possible word postings
+    :returns: the postings of union of all possible words
+    &#34;&#34;&#34;
+    possibilties = []
+    dword = word + &#39;$&#39;
+    while dword[-1] != &#39;*&#39;:
+        dword = rotate(dword, -1)
+    dword = dword[:-1]
+    for word, permuterms in permutermIndex.items():
+        for permutern in permuterms:
+            if permutern.find(dword) == 0:
+                possibilties.append(word)
+                break
+    finalList = []
+    for word in possibilties:
+        finalList = OR(finalList, invertedIndex[word])
+    return finalList
+
+
+# In[58]:
+
+
+def replaceByLists(listOfTokens, invertedIndex, permutermIndex, all_words):
+    &#34;&#34;&#34;
+    On tokenizing the query, we will have the query terms present in a list of tokens. These can be replaced by their postings
+    and this function performs that
+    
+    :params listOfTokens: the list of tokens in the query
+    :params invertedIndex: the inverted index data structure
+    :params permutermIndex: the permuterm index data structure
+    &#34;&#34;&#34;
+    for index, token in enumerate(listOfTokens):
+        if token not in [&#39;&amp;&#39;, &#39;~&#39;, &#39;|&#39;, &#34;(&#34;, &#34;)&#34;]:
+            if &#39;*&#39; in token:
+                listOfTokens[index] = wildCardSearch(token, permutermIndex, invertedIndex)
+            else:
+                token = token.lower()
+                token = correction(token, all_words)
+                token = stemming([token])[0]
+                listOfTokens[index] = invertedIndex[token]
+    return listOfTokens
+
+
+# In[59]:
+
+
+def resolveSubProblem(listOfTokens):
+    &#34;&#34;&#34;
+    resloves tokens of the form list1 operator list2 where each list1  and list2 are postings while operator can be AND or OR
+    
+    :params listOfTokens: the tokens of the subproblem considered
+    &#34;&#34;&#34;
+    resolved = []
+    while &#39;~&#39; in listOfTokens:
+        indexNot = listOfTokens.index(&#39;~&#39;)
+        negatedList = NOT(listOfTokens[indexNot+1])
+        listOfTokens = listOfTokens[:indexNot] + listOfTokens[indexNot+2:]
+        listOfTokens.insert(indexNot, negatedList)
+    if listOfTokens[1] == &#34;&amp;&#34;:
+        resolved = AND(listOfTokens[0], listOfTokens[2])
+    else:
+        resolved = OR(listOfTokens[0], listOfTokens[2])
+    return resolved
+
+
+# In[60]:
+
+
+def updateInvertedIndex(invertedIndex, wordsList, docID):
+    &#34;&#34;&#34;
+    Updates the inverted Index with the given new list of words
+    
+    :param permutermIndex: the old inverted index
+    :param wordsList: list of new words to be indexed
+    :param docID: ID of the document from which these words have been taken
+    :returns: the updated inverted index
+    &#34;&#34;&#34;
+    for word in wordsList:
+        if word not in invertedIndex:
+            invertedIndex[word] = [docID]
+        else:
+            if invertedIndex[word][-1] != docID:
+                invertedIndex[word].append(docID)
+    return invertedIndex
+
+
+# In[61]:
+
+
+def updatePermutermIndex(permutermIndex, wordsList):
+    &#34;&#34;&#34;
+    Updates the permuterm Index with the given new list of words
+    
+    :param permutermIndex: the old permuterm index
+    :param wordsList: list of new words to be indexed
+    :returns: the updated permuterm list
+    &#34;&#34;&#34;
+    for word in wordsList:
+        if word not in permutermIndex:
+            dkey = word + &#34;$&#34;
+            permutermIndex[word] = []
+            for i in range(len(dkey),0,-1):
+                permutermIndex[word].append(rotate(dkey,i))
+    return permutermIndex
+
+
+# In[62]:
+
+
+def preProcessAndBuild(documentNames, corpseLocation):
+    &#34;&#34;&#34;
+    Performs pre procressing techniques on the given dataset/document corpse and builds inverted index and permuterm index
+    Pre-processing techniques performed:
+        1. Stopword removal
+        2. Stemming
+        3. Miscellaneous. Includes removing of non significant symbols like =, /, and .
+    
+    :param documentNames: The list of document names that this system will interact with
+    :param corpseLocation: The absolute location of the folder in which all the documents are present
+    :returns: Two data structures. Inverted index and Permuterm index
+    &#34;&#34;&#34;
+    
+    invertedIndex = {}
+    permutermIndex = dict()
+    all_words = []
+    for docID, doc in enumerate(documentNames):
+        # open the document and read its contents
+        document = open(corpseLocation + &#34;\\&#34; + doc)
+        doc_data = document.read()
+        document.close()
+        
+        # Remove miscellaneous symbols
+        doc_data = doc_data.replace(&#34;=&#34;, &#34;&#34;)
+        doc_data = doc_data.replace(&#34;.&#34;, &#34; &#34;)
+        doc_data = doc_data.replace(&#34;/&#34;, &#34; &#34;)
+        
+        # Tokenize the document contents for preprocessing
+        words = word_tokenize(doc_data)
+        
+        # Remove stop words
+        filtered_words = removeStopWords(words)
+        
+        all_words += filtered_words
+        
+        # Perform stemming on each word
+        stemmed_words =  stemming(filtered_words)
+        
+        # Update the indexes with the new set of words
+        invertedIndex = updateInvertedIndex(invertedIndex, stemmed_words, docID)
+        permutermIndex = updatePermutermIndex(permutermIndex, stemmed_words)
+        
+    return (invertedIndex, permutermIndex, all_words)
+    
+
+
+# Driver Code
+
+# In[63]:
+
+
+# Preprocessing
+path_to_doc_corpse = input(&#34;Enter the absolute path to the document corpse&#34;)
+os.chdir(path_to_doc_corpse)
+documentNames = [doc for doc in os.listdir() if doc.endswith(&#34;.txt&#34;)]
+
+print(&#34;Pre-processing and building index please wait...&#34;)
+start_time = time.time()
+invertedIndex, permutermIndex, all_words = preProcessAndBuild(documentNames, path_to_doc_corpse)
+end_time = time.time()
+print(&#34;Pre-processing done!&#34;)
+sec = end_time-start_time
+mins = sec // 60
+sec = sec % 60
+hours = mins // 60
+mins = mins % 60
+print(&#34;Time Lapsed = {0}:{1}:{2}&#34;.format(int(hours),int(mins),sec))
+
+
+# In[64]:
+
+
+# Query cell
+query = input(&#34;Enter your query&#34;)
+queryTokens = query.split()
+# print(queryTokens)
+queryTokens = replaceByLists(queryTokens, invertedIndex, permutermIndex, all_words)
+while len(queryTokens) != 1:
+    i = 0
+    j = 0
+    for j in range(len(queryTokens)):
+        if queryTokens[j] == &#39;)&#39;:
+            i = j-1
+            while queryTokens[i] != &#39;(&#39;:
+                i -= 1
+            resolved = resolveSubProblem(queryTokens[i+1:j])
+            queryTokens = queryTokens[:i] + queryTokens[j+1:]
+            queryTokens.insert(i, resolved)
+            break
+queryTokens[0]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="BooleanRetrivalSystem.AND"><code class="name flex">
+<span>def <span class="ident">AND</span></span>(<span>list1, list2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>performs intersection of two given lists.</p>
+<p>:param list1: list of docIDs
+:param list2: list of docIDs
+:returns: intersection of the two given lists</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def AND(list1, list2):
+    &#34;&#34;&#34;
+    performs intersection of two given lists.
+    
+    :param list1: list of docIDs
+    :param list2: list of docIDs
+    :returns: intersection of the two given lists
+    &#34;&#34;&#34;
+    final_list=[]
+    for docID in list1:
+        if docID in list2:
+            final_list.append(docID)
+    return final_list</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.NOT"><code class="name flex">
+<span>def <span class="ident">NOT</span></span>(<span>list1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the items that are not there in this list</p>
+<p>:param list1: list of docIDs
+:returns: list of items that are not present in this list</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def NOT(list1):
+    &#34;&#34;&#34;
+    returns the items that are not there in this list
+    
+    :param list1: list of docIDs
+    :returns: list of items that are not present in this list
+    &#34;&#34;&#34;
+    total_list = list(range(42))
+    return [i for i in total_list if i not in list1]</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.OR"><code class="name flex">
+<span>def <span class="ident">OR</span></span>(<span>list1, list2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>performs union of two given lists.</p>
+<p>:param list1: list of docIDs
+:param list2: list of docIDs
+:returns: union of the two given lists</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def OR(list1, list2):
+    &#34;&#34;&#34;
+    performs union of two given lists.
+    
+    :param list1: list of docIDs
+    :param list2: list of docIDs
+    :returns: union of the two given lists
+    &#34;&#34;&#34;
+    final_list = list(set(list1) | set(list2))
+    return final_list</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.correction"><code class="name flex">
+<span>def <span class="ident">correction</span></span>(<span>word, all_words)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Corrects the given word if it has a spelling mistake. The list of correct words is
+scrapped from NLTK library</p>
+<p>:param word: the word that might need correction
+:returns: corrected word if the given word is spelled wrong</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def correction(word, all_words):
+    &#34;&#34;&#34;
+    Corrects the given word if it has a spelling mistake. The list of correct words is  scrapped from NLTK library
+    
+    :param word: the word that might need correction
+    :returns: corrected word if the given word is spelled wrong
+    &#34;&#34;&#34;
+    correct_words = all_words
+
+    all_edit_distances = [(edit_distance(word, w),w) for w in correct_words if w[0]==word[0]]
+    return sorted(all_edit_distances, key = lambda val:val[0])[0][1]</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.preProcessAndBuild"><code class="name flex">
+<span>def <span class="ident">preProcessAndBuild</span></span>(<span>documentNames, corpseLocation)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs pre procressing techniques on the given dataset/document corpse and builds inverted index and permuterm index
+Pre-processing techniques performed:
+1. Stopword removal
+2. Stemming
+3. Miscellaneous. Includes removing of non significant symbols like =, /, and .</p>
+<p>:param documentNames: The list of document names that this system will interact with
+:param corpseLocation: The absolute location of the folder in which all the documents are present
+:returns: Two data structures. Inverted index and Permuterm index</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def preProcessAndBuild(documentNames, corpseLocation):
+    &#34;&#34;&#34;
+    Performs pre procressing techniques on the given dataset/document corpse and builds inverted index and permuterm index
+    Pre-processing techniques performed:
+        1. Stopword removal
+        2. Stemming
+        3. Miscellaneous. Includes removing of non significant symbols like =, /, and .
+    
+    :param documentNames: The list of document names that this system will interact with
+    :param corpseLocation: The absolute location of the folder in which all the documents are present
+    :returns: Two data structures. Inverted index and Permuterm index
+    &#34;&#34;&#34;
+    
+    invertedIndex = {}
+    permutermIndex = dict()
+    all_words = []
+    for docID, doc in enumerate(documentNames):
+        # open the document and read its contents
+        document = open(corpseLocation + &#34;\\&#34; + doc)
+        doc_data = document.read()
+        document.close()
+        
+        # Remove miscellaneous symbols
+        doc_data = doc_data.replace(&#34;=&#34;, &#34;&#34;)
+        doc_data = doc_data.replace(&#34;.&#34;, &#34; &#34;)
+        doc_data = doc_data.replace(&#34;/&#34;, &#34; &#34;)
+        
+        # Tokenize the document contents for preprocessing
+        words = word_tokenize(doc_data)
+        
+        # Remove stop words
+        filtered_words = removeStopWords(words)
+        
+        all_words += filtered_words
+        
+        # Perform stemming on each word
+        stemmed_words =  stemming(filtered_words)
+        
+        # Update the indexes with the new set of words
+        invertedIndex = updateInvertedIndex(invertedIndex, stemmed_words, docID)
+        permutermIndex = updatePermutermIndex(permutermIndex, stemmed_words)
+        
+    return (invertedIndex, permutermIndex, all_words)</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.removeStopWords"><code class="name flex">
+<span>def <span class="ident">removeStopWords</span></span>(<span>listOfWords)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes the stop words that have been scrapped from NLTK library.</p>
+<p>:param listOfWords: The total list of words present in the document
+:returns: The list in which the stopwords have been removed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeStopWords(listOfWords):
+    &#34;&#34;&#34;
+    Removes the stop words that have been scrapped from NLTK library.
+    
+    :param listOfWords: The total list of words present in the document
+    :returns: The list in which the stopwords have been removed
+    &#34;&#34;&#34;
+    stop_words = set(stopwords.words(&#39;english&#39;))
+    return [word.lower() for word in listOfWords if not word.lower() in stop_words]</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.replaceByLists"><code class="name flex">
+<span>def <span class="ident">replaceByLists</span></span>(<span>listOfTokens, invertedIndex, permutermIndex, all_words)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>On tokenizing the query, we will have the query terms present in a list of tokens. These can be replaced by their postings
+and this function performs that</p>
+<p>:params listOfTokens: the list of tokens in the query
+:params invertedIndex: the inverted index data structure
+:params permutermIndex: the permuterm index data structure</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def replaceByLists(listOfTokens, invertedIndex, permutermIndex, all_words):
+    &#34;&#34;&#34;
+    On tokenizing the query, we will have the query terms present in a list of tokens. These can be replaced by their postings
+    and this function performs that
+    
+    :params listOfTokens: the list of tokens in the query
+    :params invertedIndex: the inverted index data structure
+    :params permutermIndex: the permuterm index data structure
+    &#34;&#34;&#34;
+    for index, token in enumerate(listOfTokens):
+        if token not in [&#39;&amp;&#39;, &#39;~&#39;, &#39;|&#39;, &#34;(&#34;, &#34;)&#34;]:
+            if &#39;*&#39; in token:
+                listOfTokens[index] = wildCardSearch(token, permutermIndex, invertedIndex)
+            else:
+                token = token.lower()
+                token = correction(token, all_words)
+                token = stemming([token])[0]
+                listOfTokens[index] = invertedIndex[token]
+    return listOfTokens</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.resolveSubProblem"><code class="name flex">
+<span>def <span class="ident">resolveSubProblem</span></span>(<span>listOfTokens)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>resloves tokens of the form list1 operator list2 where each list1
+and list2 are postings while operator can be AND or OR</p>
+<p>:params listOfTokens: the tokens of the subproblem considered</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def resolveSubProblem(listOfTokens):
+    &#34;&#34;&#34;
+    resloves tokens of the form list1 operator list2 where each list1  and list2 are postings while operator can be AND or OR
+    
+    :params listOfTokens: the tokens of the subproblem considered
+    &#34;&#34;&#34;
+    resolved = []
+    while &#39;~&#39; in listOfTokens:
+        indexNot = listOfTokens.index(&#39;~&#39;)
+        negatedList = NOT(listOfTokens[indexNot+1])
+        listOfTokens = listOfTokens[:indexNot] + listOfTokens[indexNot+2:]
+        listOfTokens.insert(indexNot, negatedList)
+    if listOfTokens[1] == &#34;&amp;&#34;:
+        resolved = AND(listOfTokens[0], listOfTokens[2])
+    else:
+        resolved = OR(listOfTokens[0], listOfTokens[2])
+    return resolved</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.rotate"><code class="name flex">
+<span>def <span class="ident">rotate</span></span>(<span>str, n)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Left rotates the given string by n times
+:param str: the string that needs to be rotated
+:param n: the number of times the string needs to be left rotated
+:returns: the rotated string</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rotate(str, n):
+    &#34;&#34;&#34;
+    Left rotates the given string by n times
+    :param str: the string that needs to be rotated
+    :param n: the number of times the string needs to be left rotated
+    :returns: the rotated string
+    &#34;&#34;&#34;
+    return str[n:] + str[:n]</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.stemming"><code class="name flex">
+<span>def <span class="ident">stemming</span></span>(<span>listOfWords)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs stemming on each of the given list of words</p>
+<p>:param listOfWords: a list of words on which the stemming needs to be performed
+:returns: a list of stemmed words</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stemming(listOfWords):
+    &#34;&#34;&#34;
+    Performs stemming on each of the given list of words
+    
+    :param listOfWords: a list of words on which the stemming needs to be performed
+    :returns: a list of stemmed words
+    &#34;&#34;&#34;
+    ps = PorterStemmer()
+    return [ps.stem(w) for w in listOfWords]</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.updateInvertedIndex"><code class="name flex">
+<span>def <span class="ident">updateInvertedIndex</span></span>(<span>invertedIndex, wordsList, docID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the inverted Index with the given new list of words</p>
+<p>:param permutermIndex: the old inverted index
+:param wordsList: list of new words to be indexed
+:param docID: ID of the document from which these words have been taken
+:returns: the updated inverted index</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updateInvertedIndex(invertedIndex, wordsList, docID):
+    &#34;&#34;&#34;
+    Updates the inverted Index with the given new list of words
+    
+    :param permutermIndex: the old inverted index
+    :param wordsList: list of new words to be indexed
+    :param docID: ID of the document from which these words have been taken
+    :returns: the updated inverted index
+    &#34;&#34;&#34;
+    for word in wordsList:
+        if word not in invertedIndex:
+            invertedIndex[word] = [docID]
+        else:
+            if invertedIndex[word][-1] != docID:
+                invertedIndex[word].append(docID)
+    return invertedIndex</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.updatePermutermIndex"><code class="name flex">
+<span>def <span class="ident">updatePermutermIndex</span></span>(<span>permutermIndex, wordsList)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the permuterm Index with the given new list of words</p>
+<p>:param permutermIndex: the old permuterm index
+:param wordsList: list of new words to be indexed
+:returns: the updated permuterm list</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updatePermutermIndex(permutermIndex, wordsList):
+    &#34;&#34;&#34;
+    Updates the permuterm Index with the given new list of words
+    
+    :param permutermIndex: the old permuterm index
+    :param wordsList: list of new words to be indexed
+    :returns: the updated permuterm list
+    &#34;&#34;&#34;
+    for word in wordsList:
+        if word not in permutermIndex:
+            dkey = word + &#34;$&#34;
+            permutermIndex[word] = []
+            for i in range(len(dkey),0,-1):
+                permutermIndex[word].append(rotate(dkey,i))
+    return permutermIndex</code></pre>
+</details>
+</dd>
+<dt id="BooleanRetrivalSystem.wildCardSearch"><code class="name flex">
+<span>def <span class="ident">wildCardSearch</span></span>(<span>word, permutermIndex, invertedIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>wildcard query terms can have many possibilites based on the document corpse.
+This function takes the wildcard terms and searches for all the possiblites of the word and returns a combined list of
+documents that the possible words are present</p>
+<p>:param word: the wildcard query term
+:param permutermIndex: the permuterm index which has all the words with their possible left rotations
+:param invertedIndex: the inverted index for searching the possible word postings
+:returns: the postings of union of all possible words</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def wildCardSearch(word, permutermIndex, invertedIndex):
+    &#34;&#34;&#34;
+    wildcard query terms can have many possibilites based on the document corpse.
+    This function takes the wildcard terms and searches for all the possiblites of the word and returns a combined list of 
+    documents that the possible words are present
+    
+    :param word: the wildcard query term
+    :param permutermIndex: the permuterm index which has all the words with their possible left rotations
+    :param invertedIndex: the inverted index for searching the possible word postings
+    :returns: the postings of union of all possible words
+    &#34;&#34;&#34;
+    possibilties = []
+    dword = word + &#39;$&#39;
+    while dword[-1] != &#39;*&#39;:
+        dword = rotate(dword, -1)
+    dword = dword[:-1]
+    for word, permuterms in permutermIndex.items():
+        for permutern in permuterms:
+            if permutern.find(dword) == 0:
+                possibilties.append(word)
+                break
+    finalList = []
+    for word in possibilties:
+        finalList = OR(finalList, invertedIndex[word])
+    return finalList</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="BooleanRetrivalSystem.AND" href="#BooleanRetrivalSystem.AND">AND</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.NOT" href="#BooleanRetrivalSystem.NOT">NOT</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.OR" href="#BooleanRetrivalSystem.OR">OR</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.correction" href="#BooleanRetrivalSystem.correction">correction</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.preProcessAndBuild" href="#BooleanRetrivalSystem.preProcessAndBuild">preProcessAndBuild</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.removeStopWords" href="#BooleanRetrivalSystem.removeStopWords">removeStopWords</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.replaceByLists" href="#BooleanRetrivalSystem.replaceByLists">replaceByLists</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.resolveSubProblem" href="#BooleanRetrivalSystem.resolveSubProblem">resolveSubProblem</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.rotate" href="#BooleanRetrivalSystem.rotate">rotate</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.stemming" href="#BooleanRetrivalSystem.stemming">stemming</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.updateInvertedIndex" href="#BooleanRetrivalSystem.updateInvertedIndex">updateInvertedIndex</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.updatePermutermIndex" href="#BooleanRetrivalSystem.updatePermutermIndex">updatePermutermIndex</a></code></li>
+<li><code><a title="BooleanRetrivalSystem.wildCardSearch" href="#BooleanRetrivalSystem.wildCardSearch">wildCardSearch</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
